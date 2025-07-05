@@ -50,7 +50,7 @@ function getWeatherInfo () {
         visibility.textContent = `${response.data.visibility / 1000} km`;
         errorMsg.textContent = ``;
 
-        const POLLUTION_URL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}${apiInfo.key}`;
+        const POLLUTION_URL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}${apiInfo.key}`;
         //console.log(POLLUTION_URL);
 
         axios.get(POLLUTION_URL).then((res) => {
