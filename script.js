@@ -45,12 +45,12 @@ function getWeatherInfo () {
         feelsLike.textContent = `${Math.round(response.data.main.feels_like)}°C`;
         humidity.textContent = `${response.data.main.humidity}%`;
         pressure.textContent = `${response.data.main.pressure}hPa`;
-        windSpeed.textContent = `${response.data.wind.speed * 3.6}km/h`;
+        windSpeed.textContent = `${Math.round(response.data.wind.speed * 3.6)}km/h`;
         clouds.textContent = `${response.data.clouds.all}%`;
         visibility.textContent = `${response.data.visibility / 1000} km`;
         errorMsg.textContent = ``;
 
-        const POLLUTION_URL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}${apiInfo.key}`;
+        const POLLUTION_URL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}${apiInfo.key}`;
         //console.log(POLLUTION_URL);
 
         axios.get(POLLUTION_URL).then((res) => {
